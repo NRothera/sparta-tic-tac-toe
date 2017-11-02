@@ -3,14 +3,7 @@ $(function(event){
   var player2 = false;
   var player1chosen = [];
   var player2chosen = [];
-  var win1 = '123';
-  var win2= '456';
-  var win3 = '789';
-  var win4 = '147';
-  var win5 = '258';
-  var win6 = '369';
-  var win7 = '159';
-  var win8 = '357';
+  var winningCombinations = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
   //Function to change inner HTML of table cells
     function changeTableCells(){
       $('td').each(function(index, value){
@@ -22,7 +15,7 @@ $(function(event){
             player1 = false;
             $(this).attr('id', 'clicked');
             $(".playerTurn").html("It is O's turn");
-            player1chosen.push($(this).attr("data-num"))
+            player1chosen.push(parseInt($(this).attr("data-num")))
             console.log(player1chosen)
           //This is player 2's go, turns boxes white with an O
           }else if((player2===true)&&(!$(this).is('#clicked'))){
@@ -31,62 +24,22 @@ $(function(event){
             player2=false;
             $(this).attr('id', 'clicked');
             $(".playerTurn").html("It is X's turn");
-            player2chosen.push($(this).attr("data-num"))
+            player2chosen.push(parseInt($(this).attr("data-num")))
             console.log(player2chosen)
+          }
+          if (player1chosen.length >=3 || player2chosen.length >=3){
+            winningCheck()
           }
         })
       })
       // storeScores();
     }
 
-    function winningCombinations(){
-
-    }
-
-
-
-    //function to store who has picked which blocks
-    // function storeScores(){
-    //   $('tr').click(function(event){
-    //     if (player1 === true){
-    //       if ($(this).hasClass('row1')){
-    //         player1array1.push('1')
-    //         console.log($('tr')[2])
-    //       }else if ($(this).hasClass('row2')){
-    //         player1array2.push('2')
-    //       }else if($(this).hasClass('row3')){
-    //         player1array3.push('3')
-    //       }
-    //     }else if(player2===true){
-    //       if ($(this).hasClass('row1')){
-    //         player2array1.push('1')
-    //
-    //       }else if ($(this).hasClass('row2')){
-    //         player2array2.push('2')
-    //
-    //       }else if($(this).hasClass('row3')){
-    //         player2array3.push('3')
-    //
-    //       }
+    // function winningCheck(){
+    //   for (var i = 0; i < winningCombinations.length; i++){
+    //     if (player1chosen.inclu)
     //     }
-    //   })
-    // }
-
-    //Function to check in won
-    // function hasWon(){
-    //   if ((player1array1.length === 3)|| (player1array2.length===3) || (player1array3.length===3)){
-    //     alert('O has won!')
-    //     reset()
-    //   }else if((player2array1.length === 3)|| (player2array2.length===3) || (player2array3.length===3)){
-    //     alert('X has won!')
-    //     reset()
-    //   }else if((player2array1[0]))
-    // }
-
-
-
-
-
+    //   }
 
 
     //Function to clear everything
@@ -105,13 +58,3 @@ $(function(event){
     reset()
     // winningCombinations()
   })
-
-
-
-
-
-//Function
-
-
-
-//Function to find out if anyone has won
