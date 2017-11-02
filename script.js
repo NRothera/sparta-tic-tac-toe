@@ -28,47 +28,46 @@ $(function(event){
           }
         })
       })
-      reset()
       storeScores()
     }
 
     //function to store who has picked which blocks
-    function storeScores(){
-      $('tr').click(function(event){
-        if (player1 === true){
-          if ($(this).hasClass('row1')){
-            player1array1.push('1')
-            console.log(player1array1)
-          }else if ($(this).hasClass('row2')){
-            player1array2.push('2')
-            console.log(player1array2)
-          }else if($(this).hasClass('row3')){
-            player1array3.push('3')
-            console.log(player1array3)
-          }
-        }else if(player2===true){
-          if ($(this).hasClass('row1')){
-            player2array1.push('1')
-            console.log(player2array1)
-          }else if ($(this).hasClass('row2')){
-            player2array2.push('2')
-            console.log(player2array2)
-          }else if($(this).hasClass('row3')){
-            player2array3.push('3')
-            console.log(player2array3)
-          }
-        }hasWon()
-      })
-    }
+    // function storeScores(){
+    //   $('tr').click(function(event){
+    //     if (player1 === true){
+    //       if ($(this).hasClass('row1')){
+    //         player1array1.push('1')
+    //         console.log($('tr')[2])
+    //       }else if ($(this).hasClass('row2')){
+    //         player1array2.push('2')
+    //       }else if($(this).hasClass('row3')){
+    //         player1array3.push('3')
+    //       }
+    //     }else if(player2===true){
+    //       if ($(this).hasClass('row1')){
+    //         player2array1.push('1')
+    //
+    //       }else if ($(this).hasClass('row2')){
+    //         player2array2.push('2')
+    //
+    //       }else if($(this).hasClass('row3')){
+    //         player2array3.push('3')
+    //
+    //       }
+    //     }
+    //   })
+    // }
 
     //Function to check in won
-    function hasWon(){
-      if ((player1array1.length === 3)|| (player1array2.length===3) || (player1array3.length===3)){
-        alert('X has won!')
-      }else if((player2array1.length === 3)|| (player2array2.length===3) || (player2array3.length===3)){
-        alert('O has won!')
-      }
-    }
+    // function hasWon(){
+    //   if ((player1array1.length === 3)|| (player1array2.length===3) || (player1array3.length===3)){
+    //     alert('O has won!')
+    //     reset()
+    //   }else if((player2array1.length === 3)|| (player2array2.length===3) || (player2array3.length===3)){
+    //     alert('X has won!')
+    //     reset()
+    //   }else if((player2array1[0]))
+    // }
 
 
 
@@ -83,11 +82,17 @@ $(function(event){
           $(this).html(' ').css('background-color', 'none')
           $(this).attr('id', '')
           $(this).attr('class', '')
+          player1array1=[]
+          player1array2=[]
+          player1array3=[]
+          player2array1=[]
+          player2array2=[]
+          player2array3=[]
         })
       })
     }
     changeTableCells()
-
+    reset()
   })
 
 
