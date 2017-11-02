@@ -1,7 +1,12 @@
-
-var player1 = true;
-var player2 = false;
 $(function(event){
+  var player1 = true;
+  var player2 = false;
+  var player1array1 = []
+  var player1array2 = []
+  var player1array3 = []
+  var player2array1 = []
+  var player2array2 = []
+  var player2array3 = []
   //Function to change inner HTML of table cells
     function changeTableCells(){
       $('td').each(function(index, value){
@@ -23,21 +28,35 @@ $(function(event){
           }
         })
       })
+      reset()
+    }
+
+    //function to store who has picked which blocks
+    function hasWon(){
+      $('tr').click(function(even){
+        if (player1 === true){
+
+        }
+      })
+
     }
 
 
 
+
+
+
     //Function to clear everything
-    $('#reset').click(function(event){
-      $('td').each(function(index,value){
-        $(this).html(' ').css('background-color', 'none')
-        $(this).attr('id', '')
-        $(this).attr('class', '')
+    function reset(){
+      $('#reset').click(function(event){
+        $('td').each(function(index,value){
+          $(this).html(' ').css('background-color', 'none')
+          $(this).attr('id', '')
+          $(this).attr('class', '')
+        })
       })
-    })
-
+    }
     changeTableCells()
-
 
   })
 
