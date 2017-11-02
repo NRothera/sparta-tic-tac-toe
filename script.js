@@ -29,11 +29,11 @@ $(function(event){
         })
       })
       reset()
-      hasWon()
+      storeScores()
     }
 
     //function to store who has picked which blocks
-    function hasWon(){
+    function storeScores(){
       $('tr').click(function(event){
         if (player1 === true){
           if ($(this).hasClass('row1')){
@@ -57,8 +57,17 @@ $(function(event){
             player2array3.push('3')
             console.log(player2array3)
           }
-        }
+        }hasWon()
       })
+    }
+
+    //Function to check in won
+    function hasWon(){
+      if ((player1array1.length === 3)|| (player1array2.length===3) || (player1array3.length===3)){
+        alert('X has won!')
+      }else if((player2array1.length === 3)|| (player2array2.length===3) || (player2array3.length===3)){
+        alert('O has won!')
+      }
     }
 
 
