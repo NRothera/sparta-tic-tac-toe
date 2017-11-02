@@ -1,35 +1,49 @@
 $(function(event){
   var player1 = true;
   var player2 = false;
-  var player1array1 = []
-  var player1array2 = []
-  var player1array3 = []
-  var player2array1 = []
-  var player2array2 = []
-  var player2array3 = []
+  var player1chosen = [];
+  var player2chosen = [];
+  var win1 = '123';
+  var win2= '456';
+  var win3 = '789';
+  var win4 = '147';
+  var win5 = '258';
+  var win6 = '369';
+  var win7 = '159';
+  var win8 = '357';
   //Function to change inner HTML of table cells
     function changeTableCells(){
       $('td').each(function(index, value){
         $(this).click(function(event){
           //This is player ones go, turns boxes black with an X
           if ((player1===true) && (!$(this).is('#clicked'))){
-            $(this).addClass('X').html('X')
-            player2 = true
-            player1 = false
+            $(this).addClass('X').html('X');
+            player2 = true;
+            player1 = false;
             $(this).attr('id', 'clicked');
-            $(".playerTurn").html("It is O's turn")
+            $(".playerTurn").html("It is O's turn");
+            player1chosen.push($(this).attr("data-num"))
+            console.log(player1chosen)
           //This is player 2's go, turns boxes white with an O
           }else if((player2===true)&&(!$(this).is('#clicked'))){
-            $(this).addClass('O').html('O')
-            player1=true
-            player2=false
+            $(this).addClass('O').html('O');
+            player1=true;
+            player2=false;
             $(this).attr('id', 'clicked');
-            $(".playerTurn").html("It is X's turn")
+            $(".playerTurn").html("It is X's turn");
+            player2chosen.push($(this).attr("data-num"))
+            console.log(player2chosen)
           }
         })
       })
-      storeScores()
+      // storeScores();
     }
+
+    function winningCombinations(){
+
+    }
+
+
 
     //function to store who has picked which blocks
     // function storeScores(){
@@ -82,17 +96,14 @@ $(function(event){
           $(this).html(' ').css('background-color', 'none')
           $(this).attr('id', '')
           $(this).attr('class', '')
-          player1array1=[]
-          player1array2=[]
-          player1array3=[]
-          player2array1=[]
-          player2array2=[]
-          player2array3=[]
+          player1chosen = []
+          player2chosen=[]
         })
       })
     }
     changeTableCells()
     reset()
+    // winningCombinations()
   })
 
 
