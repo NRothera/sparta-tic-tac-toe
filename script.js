@@ -29,17 +29,38 @@ $(function(event){
         })
       })
       reset()
+      hasWon()
     }
 
     //function to store who has picked which blocks
     function hasWon(){
-      $('tr').click(function(even){
+      $('tr').click(function(event){
         if (player1 === true){
-
+          if ($(this).hasClass('row1')){
+            player1array1.push('1')
+            console.log(player1array1)
+          }else if ($(this).hasClass('row2')){
+            player1array2.push('2')
+            console.log(player1array2)
+          }else if($(this).hasClass('row3')){
+            player1array3.push('3')
+            console.log(player1array3)
+          }
+        }else if(player2===true){
+          if ($(this).hasClass('row1')){
+            player2array1.push('1')
+            console.log(player2array1)
+          }else if ($(this).hasClass('row2')){
+            player2array2.push('2')
+            console.log(player2array2)
+          }else if($(this).hasClass('row3')){
+            player2array3.push('3')
+            console.log(player2array3)
+          }
         }
       })
-
     }
+
 
 
 
