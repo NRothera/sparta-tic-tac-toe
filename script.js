@@ -16,7 +16,7 @@ $(function(event){
             $(this).attr('id', 'clicked');
             $(".playerTurn").html("It is O's turn");
             player1chosen.push(parseInt($(this).attr("data-num")))
-            winningCheck();
+            winningCheck(player1chosen, "X");
           //This is player 2's go, turns boxes white with an O
           }else if((player2===true)&&(!$(this).is('#clicked'))){
             $(this).addClass('O').html('O');
@@ -25,29 +25,20 @@ $(function(event){
             $(this).attr('id', 'clicked');
             $(".playerTurn").html("It is X's turn");
             player2chosen.push(parseInt($(this).attr("data-num")))
-            winningCheck()
-          }
-          if (player1chosen.length >=3){
-
+            winningCheck(player2chosen, "O")
           }
         })
       })
-      // storeScores();
+
     }
 
     // This function checks to see if you have won
-    function winningCheck(){
+    function winningCheck(chosen, player){
       $(winningCombinations).each(function(key, value){
-        if (jQuery.inArray(value[0],player1chosen) !==-1){
-          if (jQuery.inArray(value[1],player1chosen) !==-1){
-            if (jQuery.inArray(value[2],player1chosen) !==-1){
-              alert('PLayer 1 has won!');
-            }
-          }
-        }else if(jQuery.inArray(value[0], player2chosen)!==-1){
-          if (jQuery.inArray(value[1], player2chosen)!==-1){
-            if (jQuery.inArray(value[2], player2chosen)!==-1){
-              alert('Player 2 has won!');
+        if (jQuery.inArray(value[0],chosen) !==-1){
+          if (jQuery.inArray(value[1],chosen) !==-1){
+            if (jQuery.inArray(value[2],chosen) !==-1){
+              alert(player + ' has won!');
             }
           }
         }
@@ -69,4 +60,10 @@ $(function(event){
     changeTableCells()
     reset()
     // winningCombinations()
+
+    var randomNumber = Math.floor((Math.random()*12))
+    var groupNames = ["Nick", "Jon", "Nick 2", "Yusuf", "Matt", "Daniel", "Deepa", "Narullah", "Nathan", "Soraia", "Steven", "Katie", "Ka Lok"]
+
+    console.log(groupNames[randomNumber])
+
   })
