@@ -27,20 +27,33 @@ $(function(event){
             player2chosen.push(parseInt($(this).attr("data-num")))
             console.log(player2chosen)
           }
-          if (player1chosen.length >=3 || player2chosen.length >=3){
+          if (player1chosen.length >=3){
             winningCheck()
           }
+
         })
       })
       // storeScores();
     }
 
-    // function winningCheck(){
-    //   for (var i = 0; i < winningCombinations.length; i++){
-    //     if (player1chosen.inclu)
-    //     }
-    //   }
-
+    // This function checks to see if you have won
+    function winningCheck(){
+      $(winningCombinations).each(function(key, value){
+        if (jQuery.inArray(value[0],player1chosen) !==-1){
+          if (jQuery.inArray(value[1],player1chosen) !==-1){
+            if (jQuery.inArray(value[2],player1chosen) !==-1){
+              alert('PLayer 1 has won!')
+            }
+          }
+        }else if(jQuery.inArray(value[0], player2chosen)!==-1){
+          if (jQuery.inArray(value[1], player2chosen)!==-1){
+            if (jQuery.inArray(value[2], player2chosen)!==-1){
+              alert('Player 2 has won!')
+            }
+          }
+        }
+      })
+    }
 
     //Function to clear everything
     function reset(){
