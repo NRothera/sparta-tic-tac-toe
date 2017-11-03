@@ -39,24 +39,28 @@ $(function(event){
           if (jQuery.inArray(value[1],chosen) !==-1){
             if (jQuery.inArray(value[2],chosen) !==-1){
               alert(player + ' has won!');
+              reset()
             }
           }
         }
       })
     }
 
+    $('#reset').click(reset)
     //Function to clear everything
     function reset(){
-      $('#reset').click(function(event){
         $('td').each(function(index,value){
           $(this).html(' ').css('background-color', 'none');
           $(this).attr('id', '');
           $(this).attr('class', '');
           player1chosen = [];
           player2chosen=[];
+          player1 = true;
+          player2 = false;
+          $('.playerTurn').html("It is X's turn")
         })
-      })
-    }
+      }
+
     changeTableCells()
     reset()
     // winningCombinations()
