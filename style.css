@@ -1,0 +1,33 @@
+body { font-family: 'Helvetica' }
+table {
+  margin: 0 auto;
+  border-radius:10px;
+}
+td {
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  font-size: 8em;
+}
+
+.X {
+  background: black;
+  color: white;
+}
+.O {
+  background: white;
+  color: black;
+}
+
+#reset{
+  padding:30px;
+  border-radius: 20px;
+  background-color: black;
+  color:white;
+}
+
+#reset:hover{
+  background: white;
+  color: black;
+}
