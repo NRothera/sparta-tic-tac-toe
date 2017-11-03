@@ -16,7 +16,7 @@ $(function(event){
             $(this).attr('id', 'clicked');
             $(".playerTurn").html("It is O's turn");
             player1chosen.push(parseInt($(this).attr("data-num")))
-            console.log(player1chosen)
+            winningCheck();
           //This is player 2's go, turns boxes white with an O
           }else if((player2===true)&&(!$(this).is('#clicked'))){
             $(this).addClass('O').html('O');
@@ -25,12 +25,11 @@ $(function(event){
             $(this).attr('id', 'clicked');
             $(".playerTurn").html("It is X's turn");
             player2chosen.push(parseInt($(this).attr("data-num")))
-            console.log(player2chosen)
-          }
-          if (player1chosen.length >=3){
             winningCheck()
           }
+          if (player1chosen.length >=3){
 
+          }
         })
       })
       // storeScores();
@@ -42,13 +41,13 @@ $(function(event){
         if (jQuery.inArray(value[0],player1chosen) !==-1){
           if (jQuery.inArray(value[1],player1chosen) !==-1){
             if (jQuery.inArray(value[2],player1chosen) !==-1){
-              alert('PLayer 1 has won!')
+              alert('PLayer 1 has won!');
             }
           }
         }else if(jQuery.inArray(value[0], player2chosen)!==-1){
           if (jQuery.inArray(value[1], player2chosen)!==-1){
             if (jQuery.inArray(value[2], player2chosen)!==-1){
-              alert('Player 2 has won!')
+              alert('Player 2 has won!');
             }
           }
         }
@@ -59,11 +58,11 @@ $(function(event){
     function reset(){
       $('#reset').click(function(event){
         $('td').each(function(index,value){
-          $(this).html(' ').css('background-color', 'none')
-          $(this).attr('id', '')
-          $(this).attr('class', '')
-          player1chosen = []
-          player2chosen=[]
+          $(this).html(' ').css('background-color', 'none');
+          $(this).attr('id', '');
+          $(this).attr('class', '');
+          player1chosen = [];
+          player2chosen=[];
         })
       })
     }
